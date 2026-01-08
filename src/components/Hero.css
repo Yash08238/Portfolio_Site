@@ -113,7 +113,7 @@
 
 .hero-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 50px rgba(124, 58, 237, 0.8);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
 }
 
 /* Hide background container */
@@ -143,17 +143,26 @@
 
 @media (max-width: 500px) {
     .hero-image-container {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 
     .hero-image {
-        width: 260px;
-        height: 260px;
+        width: 240px;
+        height: 240px;
     }
 
-    .hero-circle-bg {
-        width: 300px;
-        height: 300px;
+    .hero-name {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 }

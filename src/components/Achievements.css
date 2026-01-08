@@ -1,17 +1,57 @@
 /* Achievements.css */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 5%,
+            black 95%,
+            transparent);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black 5%,
+            black 95%,
+            transparent);
+    padding: 2rem 0;
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+.marquee-content.paused {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .achievement-card {
+    min-width: 350px;
+    width: 350px;
+    flex-shrink: 0;
+    margin-right: 2rem;
     border-radius: 16px;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    background: var(--glass-bg);
+    /* Ensure background is set */
+    backdrop-filter: none !important;
+    /* Force remove blur for performance */
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--glass-border);
 }
 
 /* ... existing styles ... */
@@ -22,8 +62,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 2000;
     display: flex;
     justify-content: center;
@@ -172,4 +211,40 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .achievement-card {
+        min-width: 280px;
+        width: 280px;
+        margin-right: 1.5rem;
+    }
+
+    .achievement-image {
+        height: 180px;
+    }
+
+    .lightbox-overlay {
+        padding: 1rem;
+    }
+
+    .lightbox-content {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 32px;
+        height: 32px;
+    }
+
+    .lightbox-details {
+        padding: 1rem;
+    }
+
+    .lightbox-details h3 {
+        font-size: 1.25rem;
+    }
 }

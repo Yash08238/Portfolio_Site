@@ -3,10 +3,11 @@ import profileImg from './assets/profile.jpg';
 import achievementSmartCoder from './assets/achievement_smart_coder.png';
 import achievementAws from './assets/achievement_aws.jpg';
 import achievementIdeathon from './assets/achievement_ideathon.jpg';
-import project1Img from './assets/project_1_dashboard.png';
+import project1Img from './assets/erp-system-latest.png';
+import achievementHackerrank from './assets/achievement_hackerrank.jpg';
 
 export const personalInfo = {
-    name: "Yash",
+    name: "Yash Chauhan",
     title: "Full Stack Developer",
     email: "yashc1024@gmail.com",
     phone: "+91 8320120356",
@@ -41,9 +42,10 @@ export const aboutContent = {
 export const projectsContent = [
     {
         id: 1,
-        title: "E-Commerce Dashboard",
-        description: "A comprehensive analytics dashboard for online retailers with real-time data visualization.",
-        tags: ["React", "Chart.js", "Tailwind"],
+        title: "ERP SYSTEM",
+        subtitle: "Inventory & Sales Management System",
+        description: "Enterprise Resource Planning for managing inventory, sales, and analytics", // Updated description to match screenshot text
+        tags: ["React", "Chart.js", "Inframax"], // Updated tags to match screenshot roughly or keep existing? Screenshot has icons. I'll keep text for now but maybe change icons later. The screenshot has 'Inframax'
         image: project1Img,
         github: "#",
         demo: "#"
@@ -51,6 +53,7 @@ export const projectsContent = [
     {
         id: 2,
         title: "AI Image Generator",
+        subtitle: "Creative AI Tool",
         description: "Web application that uses OpenAI's DALL-E API to generate creative images from text prompts.",
         tags: ["Next.js", "OpenAI API", "Stripe"],
         image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000",
@@ -60,6 +63,7 @@ export const projectsContent = [
     {
         id: 3,
         title: "Social Media App",
+        subtitle: "Real-time Connect Platform",
         description: "Full-featured social platform with real-time messaging, feed updates, and user profiles.",
         tags: ["React", "Firebase", "Redux"],
         image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000",
@@ -92,5 +96,13 @@ export const achievementsContent = [
         tags: ["AWS", "Cloud"],
         image: achievementAws,
         date: "Dec 2025"
+    },
+    {
+        id: 4,
+        title: "HackerRank Certified",
+        description: "Successfully cleared the HackerRank role certification test for Frontend Developer (React).",
+        tags: ["React", "Certification", "HackerRank"],
+        image: achievementHackerrank,
+        date: "Jan 2026"
     }
 ];

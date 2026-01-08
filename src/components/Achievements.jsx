@@ -17,13 +17,11 @@ const AchievementCard = ({ achievement, onClick, index }) => (
             ease: "easeOut"
         }}
         onClick={() => onClick(achievement)}
-        layoutId={`card-${achievement.id}`}
     >
         <div className="achievement-image">
-            <motion.img
+            <img
                 src={achievement.image}
                 alt={achievement.title}
-                layoutId={`image-${achievement.id}`}
             />
             <div className="achievement-overlay">
                 <div className="achievement-date">
@@ -63,15 +61,27 @@ const Achievements = () => {
                     <p className="section-subtitle">Milestones and recognitions along my journey.</p>
                 </motion.div>
 
-                <div className="achievements-grid">
-                    {achievementsContent.map((item, index) => (
-                        <AchievementCard
-                            key={item.id}
-                            achievement={item}
-                            index={index}
-                            onClick={setSelectedId}
-                        />
-                    ))}
+                <div className="marquee-container">
+                    <div className={`marquee-content ${selectedId ? 'paused' : ''}`}>
+                        {/* First set of items */}
+                        {achievementsContent.map((item, index) => (
+                            <AchievementCard
+                                key={`first-${item.id}`}
+                                achievement={item}
+                                index={index}
+                                onClick={setSelectedId}
+                            />
+                        ))}
+                        {/* Duplicate set for seamless scrolling */}
+                        {achievementsContent.map((item, index) => (
+                            <AchievementCard
+                                key={`second-${item.id}`}
+                                achievement={item}
+                                index={index}
+                                onClick={setSelectedId}
+                            />
+                        ))}
+                    </div>
                 </div>
 
                 <AnimatePresence>
@@ -85,14 +95,12 @@ const Achievements = () => {
                         >
                             <motion.div
                                 className="lightbox-content"
-                                layoutId={`card-${selectedId.id}`}
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <motion.img
+                                <img
                                     src={selectedId.image}
                                     alt={selectedId.title}
                                     className="lightbox-image"
-                                    layoutId={`image-${selectedId.id}`}
                                 />
                                 <button className="lightbox-close" onClick={() => setSelectedId(null)}>
                                     <X size={24} />

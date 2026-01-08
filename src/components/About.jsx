@@ -22,6 +22,17 @@ const About = () => {
                         ))}
                     </motion.div>
 
+                    <motion.h3
+                        className="section-title"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem' }}
+                    >
+                        My <span className="text-gradient">Skills</span>
+                    </motion.h3>
+
                     <div className="skills-grid">
                         {aboutContent.skills.map((category, index) => (
                             <motion.div

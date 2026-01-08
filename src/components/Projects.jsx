@@ -5,34 +5,32 @@ import './Projects.css';
 
 const ProjectCard = ({ project, index }) => (
     <motion.div
-        className="project-card glass"
-        whileHover={{ y: -10, scale: 1.02 }}
-        initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        className="project-card"
+        whileHover={{ y: -5 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ margin: "-50px" }}
         transition={{
-            duration: 0.5,
+            duration: 0.4,
             delay: index * 0.1,
             ease: "easeOut"
         }}
     >
-        <div className="project-image">
-            <img src={project.image} alt={project.title} />
-            <div className="project-overlay">
-                <div className="project-links">
-                    <a href={project.github} className="icon-btn" title="View Code"><Github size={20} /></a>
-                    <a href={project.demo} className="icon-btn" title="Live Demo"><ExternalLink size={20} /></a>
-                </div>
-            </div>
+        <div className="project-header">
+            <h3 className="project-title">{project.title}</h3>
+            {project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
         </div>
-        <div className="project-content">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="project-tags">
-                {project.tags.map(tag => (
-                    <span key={tag} className="tag">{tag}</span>
-                ))}
-            </div>
+
+        <div className="project-image-container">
+            <img src={project.image} alt={project.title} />
+        </div>
+
+        <p className="project-description">{project.description}</p>
+
+        <div className="project-tags">
+            {project.tags.map(tag => (
+                <span key={tag} className="tag-pill">{tag}</span>
+            ))}
         </div>
     </motion.div>
 );

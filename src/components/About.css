@@ -5,11 +5,18 @@
     gap: 4rem;
 }
 
+.about-text {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+}
+
 .about-description {
     color: hsl(var(--text-secondary));
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8;
+    text-wrap: pretty;
 }
 
 .skills-grid {
@@ -71,5 +78,13 @@
 @media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-text {
+        margin-bottom: 2rem;
+    }
+
+    .about-description {
+        font-size: 1rem;
     }
 }
