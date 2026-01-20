@@ -8,14 +8,6 @@ I am **Yash Chauhan**, a passionate Full Stack Developer with expertise in build
 
 - **Stack**: React, Node.js, Express, PostgreSQL, Tailwind CSS
 - **Focus**: Clean design, performance, and seamless user experience
-- **Location**: Ahmedabad, Gujarat
-
-## 🏆 Certifications
-
-- **Node (Basic) Certification** - HackerRank
-- **Frontend Developer (React) Certification** - HackerRank
-- **Smart Coder Certification** - Smart Interviews
-- **Ideathon 2K23 Winner**
 
 ## 🛠️ Built With
 
