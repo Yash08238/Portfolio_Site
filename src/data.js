@@ -5,6 +5,7 @@ import achievementAws from './assets/achievement_aws.jpg';
 import achievementIdeathon from './assets/achievement_ideathon.jpg';
 import project1Img from './assets/erp-system-latest.png';
 import achievementHackerrank from './assets/achievement_hackerrank.jpg';
+import achievementNodeBasic from './assets/hackerrank_node_basic.jpg';
 
 export const personalInfo = {
     name: "Yash Chauhan",
@@ -103,6 +104,14 @@ export const achievementsContent = [
         description: "Successfully cleared the HackerRank role certification test for Frontend Developer (React).",
         tags: ["React", "Certification", "HackerRank"],
         image: achievementHackerrank,
+        date: "Jan 2026"
+    },
+    {
+        id: 5,
+        title: "Node (Basic) Certification",
+        description: "Successfully cleared the HackerRank skill certification test for Node.js (Basic).",
+        tags: ["Node.js", "Certification", "HackerRank"],
+        image: achievementNodeBasic,
         date: "Jan 2026"
     }
 ];

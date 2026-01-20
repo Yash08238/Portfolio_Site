@@ -1,16 +1,49 @@
-# React + Vite
+# Portfolio Website - Yash Chauhan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website repository! This project showcases my skills, projects, and professional journey as a Full Stack Developer.
 
-Currently, two official plugins are available:
+## 🚀 About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I am **Yash Chauhan**, a passionate Full Stack Developer with expertise in building modern, scalable, and user-centric web applications.
 
-## React Compiler
+- **Stack**: React, Node.js, Express, PostgreSQL, Tailwind CSS
+- **Focus**: Clean design, performance, and seamless user experience
+- **Location**: Ahmedabad, Gujarat
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏆 Certifications
 
-## Expanding the ESLint configuration
+- **Node (Basic) Certification** - HackerRank
+- **Frontend Developer (React) Certification** - HackerRank
+- **Smart Coder Certification** - Smart Interviews
+- **Ideathon 2K23 Winner**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Built With
+
+- **React** + **Vite**
+- **Tailwind CSS**
+- **Framer Motion** for animations
+- **Lucide React** for icons
+
+## 💻 Getting Started
+
+To run this project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Yash08238/Portfolio_Site.git
+   cd Portfolio_Site
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
