@@ -2,21 +2,21 @@
 
 Welcome to my personal portfolio website repository! This project showcases my skills, projects, and professional journey as a Full Stack Developer.
 
-# 🚀 About Me
+## 🚀 About Me
 
 I am **Yash Chauhan**, a passionate Full Stack Developer with expertise in building modern, scalable, and user-centric web applications.
 
 - **Stack**: React, Node.js, Express, PostgreSQL, Tailwind CSS
 - **Focus**: Clean design, performance, and seamless user experience
 
-# 🛠️ Built With
+## 🛠️ Built With
 
 - **React** + **Vite**
 - **Tailwind CSS**
 - **Framer Motion** for animations
 - **Lucide React** for icons
 
-# 💻 Getting Started
+## 💻 Getting Started
 
 To run this project locally:
 
@@ -36,6 +36,6 @@ To run this project locally:
    npm run dev
    ```
 
-# 📄 License
+## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
