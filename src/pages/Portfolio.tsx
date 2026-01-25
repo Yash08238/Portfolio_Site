@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView, useSpring, useMotionValue, useTransform } from 'framer-motion';
-import { Home, User, Briefcase, Mail, Github, Linkedin, Code, Award, BookOpen, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Home, User, Mail, Github, Linkedin, Code, Award, ExternalLink } from 'lucide-react';
 
 // Components
 import Aurora from '../components/reactbits/Aurora';
@@ -13,7 +13,39 @@ import SplitText from '../components/reactbits/SplitText';
 // Assets
 import profileImg from '../assets/profile.jpg';
 
-const FadeIn = ({ children, delay = 0, className = "" }) => {
+// Static data moved outside component to prevent recreation on every render
+const projects = [
+    {
+        title: "StockFlow ERP",
+        description: "A modern, full-featured inventory management system with POS, analytics, and user management.",
+        tech: "React • Redux • MUI • Chart.js"
+    },
+    {
+        title: "AI Vocab Builder",
+        description: "Interactive English vocabulary learning app generating personalized lists using Google Gemini API.",
+        tech: "Python • Streamlit • Gemini API"
+    }
+];
+
+const certifications = [
+    { title: "Certified React Developer", issuer: "Meta", year: "2025", link: "#" },
+    { title: "AWS Cloud Practitioner", issuer: "AWS", year: "2024", link: "#" },
+    { title: "Python for Data Science", issuer: "IBM", year: "2024", link: "#" },
+    { title: "Web Development Bootcamp", issuer: "Udemy", year: "2024", link: "#" },
+    { title: "JavaScript Algorithms", issuer: "FreeCodeCamp", year: "2023", link: "#" },
+    { title: "Frontend Libraries", issuer: "FreeCodeCamp", year: "2023", link: "#" },
+    { title: "Responsive Web Design", issuer: "FreeCodeCamp", year: "2023", link: "#" },
+    { title: "Git & GitHub Mastery", issuer: "Udemy", year: "2023", link: "#" }
+];
+
+const stats = [
+    { label: "Hackathons", value: "3" },
+    { label: "Projects", value: "2" },
+    { label: "Certifications", value: "8" },
+    { label: "Commits", value: "500+" }
+];
+
+const FadeIn = React.memo(({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -25,7 +57,9 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
             {children}
         </motion.div>
     );
-};
+});
+
+FadeIn.displayName = 'FadeIn';
 
 const Portfolio = () => {
     const dockItems = [
@@ -34,37 +68,6 @@ const Portfolio = () => {
         { icon: <Award size={20} />, label: 'Certifications', onClick: () => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' }) },
         { icon: <Code size={20} />, label: 'Projects', onClick: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) },
         { icon: <Mail size={20} />, label: 'Contact', onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) },
-    ];
-
-    const projects = [
-        {
-            title: "StockFlow ERP",
-            description: "A modern, full-featured inventory management system with POS, analytics, and user management.",
-            tech: "React • Redux • MUI • Chart.js"
-        },
-        {
-            title: "AI Vocab Builder",
-            description: "Interactive English vocabulary learning app generating personalized lists using Google Gemini API.",
-            tech: "Python • Streamlit • Gemini API"
-        }
-    ];
-
-    const certifications = [
-        { title: "Certified React Developer", issuer: "Meta", year: "2025", link: "#" },
-        { title: "AWS Cloud Practitioner", issuer: "AWS", year: "2024", link: "#" },
-        { title: "Python for Data Science", issuer: "IBM", year: "2024", link: "#" },
-        { title: "Web Development Bootcamp", issuer: "Udemy", year: "2024", link: "#" },
-        { title: "JavaScript Algorithms", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Frontend Libraries", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Responsive Web Design", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Git & GitHub Mastery", issuer: "Udemy", year: "2023", link: "#" }
-    ];
-
-    const stats = [
-        { label: "Hackathons", value: "3" },
-        { label: "Projects", value: "2" },
-        { label: "Certifications", value: "8" },
-        { label: "Commits", value: "500+" }
     ];
 
     return (
@@ -103,27 +106,16 @@ const Portfolio = () => {
                             text="Student & Developer"
                             className="text-xl md:text-4xl text-cyan-200 font-light tracking-widest uppercase"
                             delay={50}
-                            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-                            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                            from={{ opacity: 0, y: 50 }}
+                            to={{ opacity: 1, y: 0 }}
                             threshold={0.2}
                             rootMargin="-50px"
+                            onLetterAnimationComplete={undefined}
                         />
                     </div>
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 bg-black text-base font-normal text-gray-100 text-left rounded-none m-0 p-0"
-                >
-                    <span
-                        className="text-xs uppercase tracking-widest text-white/50"
-                        style={{
-                            fontSize: "22px"
-                        }}>Scroll to explore</span>
-                    <div className="w-[1px] h-12 bg-gradient-to-b from-white/0 via-white/50 to-white/0" />
-                </motion.div>
+
             </section>
             {/* About Section */}
             <section id="about" className="relative py-32 px-6 md:px-12 max-w-7xl mx-auto">
@@ -135,6 +127,9 @@ const Portfolio = () => {
                                 <img
                                     src={profileImg}
                                     alt="Profile"
+                                    loading="lazy"
+                                    width={400}
+                                    height={400}
                                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
