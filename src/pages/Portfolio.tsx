@@ -10,40 +10,8 @@ import SpotlightCard from '../components/reactbits/SpotlightCard';
 import Dock from '../components/reactbits/Dock';
 import SplitText from '../components/reactbits/SplitText';
 
-// Assets
-import profileImg from '../assets/profile.jpg';
-
-// Static data moved outside component to prevent recreation on every render
-const projects = [
-    {
-        title: "StockFlow ERP",
-        description: "A modern, full-featured inventory management system with POS, analytics, and user management.",
-        tech: "React • Redux • MUI • Chart.js"
-    },
-    {
-        title: "AI Vocab Builder",
-        description: "Interactive English vocabulary learning app generating personalized lists using Google Gemini API.",
-        tech: "Python • Streamlit • Gemini API"
-    }
-];
-
-const certifications = [
-    { title: "Certified React Developer", issuer: "Meta", year: "2025", link: "#" },
-    { title: "AWS Cloud Practitioner", issuer: "AWS", year: "2024", link: "#" },
-    { title: "Python for Data Science", issuer: "IBM", year: "2024", link: "#" },
-    { title: "Web Development Bootcamp", issuer: "Udemy", year: "2024", link: "#" },
-    { title: "JavaScript Algorithms", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-    { title: "Frontend Libraries", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-    { title: "Responsive Web Design", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-    { title: "Git & GitHub Mastery", issuer: "Udemy", year: "2023", link: "#" }
-];
-
-const stats = [
-    { label: "Hackathons", value: "3" },
-    { label: "Projects", value: "2" },
-    { label: "Certifications", value: "8" },
-    { label: "Commits", value: "500+" }
-];
+// Data
+import { portfolioData } from '../data/portfolio';
 
 const FadeIn = React.memo(({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
     return (
@@ -70,6 +38,8 @@ const Portfolio = () => {
         { icon: <Mail size={20} />, label: 'Contact', onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) },
     ];
 
+    const { hero, about, certifications, projects, contact } = portfolioData;
+
     return (
         <div className="min-h-screen bg-black text-gray-100 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden pb-32">
             {/* Hero Section */}
@@ -86,14 +56,14 @@ const Portfolio = () => {
                 <div className="z-10 text-center px-4">
                     <div className="mb-6 relative flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
                         <BlurText
-                            text="YASH"
+                            text={hero.firstName}
                             delay={150}
                             animateBy="letters"
                             direction="top"
                             className="text-5xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-lg"
                         />
                         <BlurText
-                            text="CHAUHAN"
+                            text={hero.lastName}
                             delay={150}
                             animateBy="letters"
                             direction="top"
@@ -103,7 +73,7 @@ const Portfolio = () => {
 
                     <div className="h-auto md:h-16 overflow-hidden">
                         <SplitText
-                            text="Student & Developer"
+                            text={hero.role}
                             className="text-xl md:text-4xl text-cyan-200 font-light tracking-widest uppercase"
                             delay={50}
                             from={{ opacity: 0, y: 50 }}
@@ -125,7 +95,7 @@ const Portfolio = () => {
                             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                             <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-black/50 backdrop-blur-sm">
                                 <img
-                                    src={profileImg}
+                                    src={about.profileImage}
                                     alt="Profile"
                                     loading="lazy"
                                     width={400}
@@ -139,17 +109,15 @@ const Portfolio = () => {
 
                     <FadeIn delay={0.2}>
                         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                            Crafting Digital <br />
-                            <span className="text-cyan-400">Experiences</span>
+                            {about.title.line1} <br />
+                            <span className="text-cyan-400">{about.title.line2}</span>
                         </h2>
                         <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                            I'm a passionate developer focused on building immersive web experiences.
-                            With a keen eye for design and a love for clean code, I transform ideas into
-                            interactive reality. My journey is driven by curiosity and the constant pursuit of innovation.
+                            {about.description}
                         </p>
 
                         <div className="grid grid-cols-2 gap-6">
-                            {stats.map((stat, index) => (
+                            {about.stats.map((stat, index) => (
                                 <div key={index} className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors">
                                     <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
                                     <div className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</div>
@@ -234,25 +202,25 @@ const Portfolio = () => {
             <section id="contact" className="py-32 px-6 md:px-12 max-w-3xl mx-auto text-center relative overflow-hidden">
                 <FadeIn>
                     <div className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's Create Together</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{contact.heading}</h2>
                         <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
-                            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                            {contact.description}
                         </p>
 
                         <div className="flex justify-center gap-6 mb-12">
-                            <a href="#" className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
+                            <a href={contact.socials.github} className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
                                 <Github size={24} />
                             </a>
-                            <a href="#" className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
+                            <a href={contact.socials.linkedin} className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
                                 <Linkedin size={24} />
                             </a>
-                            <a href="mailto:hello@example.com" className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
+                            <a href={contact.socials.email} className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
                                 <Mail size={24} />
                             </a>
                         </div>
 
                         <ShinyText
-                            text="© 2026 Yash Chauhan. All rights reserved."
+                            text={`© ${contact.footerStartYear} ${contact.footerName}. All rights reserved.`}
                             disabled={false}
                             speed={3}
                             className="text-sm text-gray-600"
