@@ -1,5 +1,10 @@
-import { Home, User, Mail, Github, Linkedin, Code, Award, ExternalLink } from 'lucide-react';
+import cert1 from '../assets/certificates/cert1.jpg';
+import cert2 from '../assets/certificates/cert2.jpg';
+import cert3 from '../assets/certificates/cert3.jpg';
+import cert4 from '../assets/certificates/cert4.jpg';
+import cert5 from '../assets/certificates/cert5.jpg';
 import profileImg from '../assets/profile.jpg';
+
 
 export const portfolioData = {
     hero: {
@@ -17,19 +22,16 @@ export const portfolioData = {
         stats: [
             { label: "Hackathons", value: "3" },
             { label: "Projects", value: "2" },
-            { label: "Certifications", value: "8" },
-            { label: "Commits", value: "500+" }
+            { label: "Certifications", value: "5" },
+            { label: "Commits", value: "100+" }
         ]
     },
     certifications: [
-        { title: "Certified React Developer", issuer: "Meta", year: "2025", link: "#" },
-        { title: "AWS Cloud Practitioner", issuer: "AWS", year: "2024", link: "#" },
-        { title: "Python for Data Science", issuer: "IBM", year: "2024", link: "#" },
-        { title: "Web Development Bootcamp", issuer: "Udemy", year: "2024", link: "#" },
-        { title: "JavaScript Algorithms", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Frontend Libraries", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Responsive Web Design", issuer: "FreeCodeCamp", year: "2023", link: "#" },
-        { title: "Git & GitHub Mastery", issuer: "Udemy", year: "2023", link: "#" }
+        { title: "Solutions Architecture Job Simulation", issuer: "Forage", year: "2026", link: "#", image: cert1 },
+        { title: "Frontend Developer (React)", issuer: "HackerRank", year: "2026", link: "#", image: cert2 },
+        { title: "AWS Students Community Day", issuer: "Parul University", year: "2025", link: "#", image: cert3 },
+        { title: "Ideathon 2K23 - 1st Rank", issuer: "Silver Oak University", year: "2023", link: "#", image: cert4 },
+        { title: "Node (Basic)", issuer: "HackerRank", year: "2026", link: "#", image: cert5 }
     ],
     projects: [
         {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Home, User, Mail, Github, Linkedin, Code, Award, ExternalLink } from 'lucide-react';
 
@@ -9,6 +9,7 @@ import ShinyText from '../components/reactbits/ShinyText';
 import SpotlightCard from '../components/reactbits/SpotlightCard';
 import Dock from '../components/reactbits/Dock';
 import SplitText from '../components/reactbits/SplitText';
+import ImageModal from '../components/ImageModal';
 
 // Data
 import { portfolioData } from '../data/portfolio';
@@ -39,6 +40,28 @@ const Portfolio = () => {
     ];
 
     const { hero, about, certifications, projects, contact } = portfolioData;
+
+    const [isNavVisible, setIsNavVisible] = useState(true);
+    const [selectedCertImage, setSelectedCertImage] = useState<string | null>(null);
+
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+
+        const handleScroll = () => {
+            setIsNavVisible(false);
+
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                setIsNavVisible(true);
+            }, 500); // Show navbar 500ms after scrolling stops
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timeoutId);
+        };
+    }, []);
 
     return (
         <div className="min-h-screen bg-black text-gray-100 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden pb-32">
@@ -146,20 +169,29 @@ const Portfolio = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {certifications.map((cert, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
-                            <SpotlightCard className="h-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-cyan-500/50 transition-colors group">
+                            <SpotlightCard
+                                className="h-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-cyan-500/50 transition-colors group cursor-pointer"
+                                onClick={() => setSelectedCertImage(cert.image)}
+                            >
                                 <div className="flex justify-between items-start mb-4">
                                     <Award className="text-cyan-400 group-hover:scale-110 transition-transform" size={32} />
                                     <span className="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded-full">{cert.year}</span>
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">{cert.title}</h3>
                                 <p className="text-sm text-gray-400 mb-4">{cert.issuer}</p>
-                                <a href={cert.link} className="inline-flex items-center text-xs text-white/50 hover:text-white transition-colors gap-1">
-                                    Verify Credential <ExternalLink size={12} />
-                                </a>
+                                <div className="inline-flex items-center text-xs text-white/50 group-hover:text-white transition-colors gap-1">
+                                    View Certificate <ExternalLink size={12} />
+                                </div>
                             </SpotlightCard>
                         </FadeIn>
                     ))}
                 </div>
+
+                <ImageModal
+                    isOpen={!!selectedCertImage}
+                    onClose={() => setSelectedCertImage(null)}
+                    imageSrc={selectedCertImage}
+                />
             </section>
             {/* Projects Section */}
             <section id="projects" className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative">
@@ -229,7 +261,7 @@ const Portfolio = () => {
                 </FadeIn>
             </section>
             {/* Dock Navigation */}
-            <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+            <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ${isNavVisible ? 'translate-y-0' : 'translate-y-[200%]'}`}>
                 <Dock
                     items={dockItems}
                     panelHeight={68}
