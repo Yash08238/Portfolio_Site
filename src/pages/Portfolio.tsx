@@ -232,8 +232,9 @@ const Portfolio = () => {
             </section>
             {/* Contact Section */}
             <section id="contact" className="pt-32 pb-10 px-6 md:px-12 max-w-3xl mx-auto text-center relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] -z-10" />
                 <FadeIn>
-                    <div className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl">
+                    <SpotlightCard className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{contact.heading}</h2>
                         <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
                             {contact.description}
@@ -257,7 +258,7 @@ const Portfolio = () => {
                             speed={3}
                             className="text-sm text-gray-600"
                         />
-                    </div>
+                    </SpotlightCard>
                 </FadeIn>
             </section>
             {/* Dock Navigation */}
