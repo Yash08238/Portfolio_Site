@@ -64,7 +64,7 @@ const Portfolio = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-gray-100 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden pb-32">
+        <div className="min-h-screen bg-black text-gray-100 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden pb-20">
             {/* Hero Section */}
             <section id="home" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
                 <div className="absolute inset-0 z-0">
@@ -231,7 +231,7 @@ const Portfolio = () => {
                 </div>
             </section>
             {/* Contact Section */}
-            <section id="contact" className="py-32 px-6 md:px-12 max-w-3xl mx-auto text-center relative overflow-hidden">
+            <section id="contact" className="pt-32 pb-10 px-6 md:px-12 max-w-3xl mx-auto text-center relative overflow-hidden">
                 <FadeIn>
                     <div className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{contact.heading}</h2>
