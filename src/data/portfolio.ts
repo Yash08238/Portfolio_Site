@@ -48,7 +48,7 @@ export const portfolioData = {
     contact: {
         heading: "Let's Create Together",
         description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
-        email: "hello@example.com",
+        email: "yashc1024@gmail.com",
         socials: {
             github: "https://github.com/Yash08238",
             linkedin: "https://www.linkedin.com/in/yash-chauhan0710",

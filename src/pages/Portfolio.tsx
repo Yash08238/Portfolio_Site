@@ -207,7 +207,7 @@ const Portfolio = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, index) => (
                         <FadeIn key={index} delay={index * 0.2}>
-                            <SpotlightCard className="h-full bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 hover:bg-white/10 transition-all group">
+                            <SpotlightCard spotlightRadius="300px" className="h-full bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 hover:border-cyan-500/50 transition-colors group cursor-pointer">
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="p-3 bg-white/10 rounded-xl text-white group-hover:bg-cyan-500 group-hover:text-black transition-colors">
                                         <Code size={24} />
@@ -234,7 +234,7 @@ const Portfolio = () => {
             <section id="contact" className="pt-32 pb-10 px-6 md:px-12 max-w-3xl mx-auto text-center relative overflow-hidden">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] -z-10" />
                 <FadeIn>
-                    <SpotlightCard className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl">
+                    <SpotlightCard spotlightRadius="300px" className="relative z-10 p-12 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl hover:border-cyan-500/50 transition-colors group">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{contact.heading}</h2>
                         <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
                             {contact.description}
@@ -247,7 +247,13 @@ const Portfolio = () => {
                             <a href={contact.socials.linkedin} className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
                                 <Linkedin size={24} />
                             </a>
-                            <a href={contact.socials.email} className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10">
+                            <a
+                                href={contact.socials.email}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-4 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/10 relative z-20"
+                                onClick={(e) => e.stopPropagation()}
+                            >
                                 <Mail size={24} />
                             </a>
                         </div>
@@ -262,12 +268,12 @@ const Portfolio = () => {
                 </FadeIn>
             </section>
             {/* Dock Navigation */}
-            <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ${(isNavVisible && !selectedCertImage) ? 'translate-y-0' : 'translate-y-[200%]'}`}>
+            <div className={`fixed bottom-2 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ${(isNavVisible && !selectedCertImage) ? 'translate-y-0' : 'translate-y-[200%]'}`}>
                 <Dock
                     items={dockItems}
-                    panelHeight={68}
-                    baseItemSize={50}
-                    magnification={70}
+                    panelHeight={60}
+                    baseItemSize={40}
+                    magnification={60}
                 />
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import './SpotlightCard.css';
 
-const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)', onClick = () => { } }) => {
+const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)', spotlightRadius = '80%', onClick = () => { } }) => {
   const divRef = useRef(null);
 
   const handleMouseMove = e => {
@@ -15,7 +15,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   };
 
   return (
-    <div ref={divRef} onMouseMove={handleMouseMove} onClick={onClick} className={`card-spotlight ${className}`}>
+    <div ref={divRef} onMouseMove={handleMouseMove} onClick={onClick} className={`card-spotlight ${className}`} style={{ '--spotlight-radius': typeof (spotlightRadius) === 'number' ? `${spotlightRadius}px` : spotlightRadius }}>
       {children}
     </div>
   );
