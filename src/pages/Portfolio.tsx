@@ -132,8 +132,7 @@ const Portfolio = () => {
 
                     <FadeIn delay={0.2}>
                         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                            {about.title.line1} <br />
-                            <span className="text-cyan-400">{about.title.line2}</span>
+                            {about.title.line1} <span className="text-cyan-400">{about.title.line2}</span>
                         </h2>
                         <p className="text-lg text-gray-400 leading-relaxed mb-8">
                             {about.description}
@@ -160,9 +159,7 @@ const Portfolio = () => {
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Certifications</h2>
                             <div className="h-1 w-20 bg-cyan-500 rounded-full" />
                         </div>
-                        <div className="hidden md:block text-right">
-                            <p className="text-gray-400">Continuous Learning &<br />Professional Growth</p>
-                        </div>
+
                     </div>
                 </FadeIn>
 
@@ -212,7 +209,11 @@ const Portfolio = () => {
                                     <div className="p-3 bg-white/10 rounded-xl text-white group-hover:bg-cyan-500 group-hover:text-black transition-colors">
                                         <Code size={24} />
                                     </div>
-                                    <ExternalLink className="text-gray-500 hover:text-white transition-colors cursor-pointer" size={24} />
+                                    {project.link && (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                            <ExternalLink className="text-gray-500 hover:text-white transition-colors cursor-pointer" size={24} />
+                                        </a>
+                                    )}
                                 </div>
 
                                 <h3 className="text-3xl font-bold text-white mb-4">{project.title}</h3>
