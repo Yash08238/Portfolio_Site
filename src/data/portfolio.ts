@@ -50,9 +50,9 @@ export const portfolioData = {
         description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
         email: "hello@example.com",
         socials: {
-            github: "#",
-            linkedin: "#",
-            email: "mailto:hello@example.com"
+            github: "https://github.com/Yash08238",
+            linkedin: "https://www.linkedin.com/in/yash-chauhan0710",
+            email: "mailto:yashc1024@gmail.com"
         },
         footerStartYear: "2026",
         footerName: "Yash Chauhan"
