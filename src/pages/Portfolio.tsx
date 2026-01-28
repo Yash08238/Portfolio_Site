@@ -262,7 +262,7 @@ const Portfolio = () => {
                 </FadeIn>
             </section>
             {/* Dock Navigation */}
-            <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ${isNavVisible ? 'translate-y-0' : 'translate-y-[200%]'}`}>
+            <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ${(isNavVisible && !selectedCertImage) ? 'translate-y-0' : 'translate-y-[200%]'}`}>
                 <Dock
                     items={dockItems}
                     panelHeight={68}
